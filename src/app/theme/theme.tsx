@@ -1,50 +1,51 @@
 import { createTheme } from "@mui/material/styles";
+import { colors } from "../consts/colors";
 
 export const theme = createTheme({
   palette: {
     mode: "light",
     primary: {
-      main: "#0f766e",
-      light: "#14b8a6",
-      dark: "#0d5a52",
-      contrastText: "#ffffff",
+      main: colors.primary.main,
+      light: colors.primary.light,
+      dark: colors.primary.dark,
+      contrastText: colors.background.paper,
     },
     secondary: {
-      main: "#64748b",
-      light: "#94a3b8",
-      dark: "#475569",
-      contrastText: "#ffffff",
+      main: colors.secondary.main,
+      light: colors.secondary.light,
+      dark: colors.secondary.dark,
+      contrastText: colors.text.primary,
     },
     background: {
-      default: "#f8fafc",
-      paper: "#ffffff",
+      default: colors.background.default,
+      paper: colors.background.paper,
     },
     error: {
-      main: "#ef4444",
-      light: "#fca5a5",
-      dark: "#dc2626",
+      main: colors.error,
+      light: colors.primary.light,
+      dark: colors.primary.dark,
     },
     warning: {
-      main: "#f59e0b",
-      light: "#fcd34d",
-      dark: "#d97706",
+      main: colors.warning,
+      light: colors.secondary.light,
+      dark: colors.secondary.dark,
     },
     info: {
-      main: "#06b6d4",
-      light: "#67e8f9",
-      dark: "#0891b2",
+      main: colors.info,
+      light: "#64B5F6",
+      dark: "#1976D2",
     },
     success: {
-      main: "#10b981",
-      light: "#6ee7b7",
-      dark: "#059669",
+      main: colors.success,
+      light: "#81C784",
+      dark: "#388E3C",
     },
     text: {
-      primary: "#1e293b",
-      secondary: "#64748b",
-      disabled: "#cbd5e1",
+      primary: colors.text.primary,
+      secondary: colors.text.secondary,
+      disabled: colors.text.disabled,
     },
-    divider: "#e2e8f0",
+    divider: colors.divider,
   },
   typography: {
     fontFamily: "Roboto, Arial, sans-serif",
@@ -95,7 +96,7 @@ export const theme = createTheme({
     MuiTableHead: {
       styleOverrides: {
         root: {
-          background: "#f1f3f6",
+          background: colors.background.default,
         },
       },
     },

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
+import { colors } from "../../consts/colors";
 
 const LanguageSwitch: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -52,16 +53,17 @@ const LanguageButton = styled.button`
   gap: 0.5rem;
   padding: 0.5rem 1rem;
   background-color: transparent;
-  border: 1px solid #e5e7eb;
+  border: 1px solid ${colors.border};
   border-radius: 8px;
   cursor: pointer;
   font-size: 0.875rem;
-  color: #374151;
+  color: ${colors.text.primary};
   transition: all 0.2s;
 
   &:hover {
-    background-color: #f9fafb;
-    border-color: #d1d5db;
+    background-color: ${colors.background.default};
+    border-color: ${colors.secondary.main};
+    box-shadow: 0 2px 4px ${colors.shadow.secondary};
   }
 
   @media (max-width: 768px) {
@@ -79,10 +81,8 @@ const DropdownMenu = styled.div<{ $isOpen: boolean }>`
   top: 100%;
   right: 0;
   margin-top: 0.5rem;
-  background-color: white;
-  border: 1px solid #e5e7eb;
+  background-color: ${colors.background.paper};
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   min-width: 120px;
   z-index: 1000;
   display: ${(props) => (props.$isOpen ? "block" : "none")};
@@ -95,16 +95,16 @@ const DropdownItem = styled.button<{ $isSelected: boolean }>`
   width: 100%;
   padding: 0.75rem 1rem;
   background-color: ${(props) =>
-    props.$isSelected ? "#f0f9ff" : "transparent"};
+    props.$isSelected ? colors.secondary.main : "transparent"};
   border: none;
   text-align: left;
   cursor: pointer;
   font-size: 0.875rem;
-  color: #374151;
   transition: background-color 0.2s;
 
   &:hover {
-    background-color: #f9fafb;
+    background-color: ${(props) =>
+      props.$isSelected ? colors.secondary.main : colors.background.default};
   }
 
   &:first-child {

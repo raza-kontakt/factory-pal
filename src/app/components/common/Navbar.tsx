@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import LanguageSwitch from "./LanguageSwitch";
+import { colors } from "../../consts/colors";
 
 const Navbar: React.FC = () => {
   return (
@@ -19,9 +20,7 @@ const NavbarContainer = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: white;
-  border-bottom: 1px solid #e5e7eb;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  background-color: ${colors.background.paper};
 
   @media (max-width: 768px) {
     padding: 0.75rem 1rem;
@@ -35,11 +34,11 @@ const Logo = styled.div`
 `;
 
 const LogoImage = styled.img`
-  height: 40px;
+  height: 45px;
   width: auto;
 
   @media (max-width: 768px) {
-    height: 32px;
+    height: 38px;
   }
 `;
 
