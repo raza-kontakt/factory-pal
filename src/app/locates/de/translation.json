@@ -1,5 +1,13 @@
 {
   "home": {
     "title": "Startseite"
+  },
+  "error": {
+    "title": "Ups! Etwas ist schief gelaufen",
+    "description": "Es tut uns leid für die Unannehmlichkeiten. Ein unerwarteter Fehler ist aufgetreten.",
+    "errorLabel": "Fehler:",
+    "tryAgain": "Nochmal versuchen",
+    "reloadPage": "Seite neu laden",
+    "supportMessage": "Wenn dieses Problem weiterhin besteht, wenden Sie sich bitte an den Support."
   }
 }
