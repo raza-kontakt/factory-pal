@@ -2,6 +2,11 @@
   "home": {
     "title": "Startseite"
   },
+  "navbar": {
+    "languageSwitch": "Sprache",
+    "english": "Englisch",
+    "german": "Deutsch"
+  },
   "error": {
     "title": "Ups! Etwas ist schief gelaufen",
     "description": "Es tut uns leid für die Unannehmlichkeiten. Ein unerwarteter Fehler ist aufgetreten.",
