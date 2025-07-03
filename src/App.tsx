@@ -1,11 +1,14 @@
 import { Button } from "@mui/material";
 import "./global.css";
+import { useTranslation } from "react-i18next";
 
 function App() {
+  const { t } = useTranslation();
+
   return (
     <>
-      <h1>Factory Pal Assessment</h1>
-      <Button variant="contained">MUI styled button</Button>
+      <h1>{t("home.title")}</h1>
+      <Button variant="contained">{t("home.title")}</Button>
     </>
   );
 }
