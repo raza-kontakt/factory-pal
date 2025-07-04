@@ -5,12 +5,12 @@ import { useTranslation } from "react-i18next";
 import { reloadPage } from "../../utils";
 
 interface GlobalErrorFallbackProps {
-  error: Error;
+  // error: Error;
   resetErrorBoundary: () => void;
 }
 
 const GlobalErrorFallback: React.FC<GlobalErrorFallbackProps> = ({
-  error,
+  // error,
   resetErrorBoundary,
 }) => {
   const { t } = useTranslation();

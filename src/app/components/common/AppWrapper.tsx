@@ -5,7 +5,6 @@ import { theme } from "../../theme/theme";
 import { ErrorBoundary } from "react-error-boundary";
 import GlobalErrorFallback from "./GlobalErrorFallback";
 import { handleGlobalError } from "../../utils/errorHandler";
-import Navbar from "./Navbar";
 
 interface AppWrapperProps {
   children: React.ReactNode;
