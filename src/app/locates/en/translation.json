@@ -14,5 +14,10 @@
     "tryAgain": "Try Again",
     "reloadPage": "Reload Page",
     "supportMessage": "If this problem persists, please contact support."
+  },
+  "chart": {
+    "barChart": {
+      "title": "Factory Analytics"
+    }
   }
 }

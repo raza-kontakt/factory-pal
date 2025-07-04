@@ -1,15 +1,20 @@
-import { Button } from "@mui/material";
+import { Container } from "@mui/material";
 import Navbar from "../components/common/Navbar";
-import { useTranslation } from "react-i18next";
+import FactoryAnalyticsBarChart from "../components/charts/BarChart/BarChart";
+import factoryData from "../consts/factory_analytics_data";
 
 const Home = () => {
-  const { t } = useTranslation();
-
   return (
     <>
       <Navbar />
-      <h1>{t("home.title")}</h1>
-      <Button variant="contained">{t("home.title")}</Button>
+      <Container maxWidth="xl">
+        <FactoryAnalyticsBarChart
+          data={factoryData}
+          height={450}
+          showTitle={true}
+          showLegend={true}
+        />
+      </Container>
     </>
   );
 };

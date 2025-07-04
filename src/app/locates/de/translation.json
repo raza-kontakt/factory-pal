@@ -14,5 +14,10 @@
     "tryAgain": "Nochmal versuchen",
     "reloadPage": "Seite neu laden",
     "supportMessage": "Wenn dieses Problem weiterhin besteht, wenden Sie sich bitte an den Support."
+  },
+  "chart": {
+    "barChart": {
+      "title": "Fabrikanalyse"
+    }
   }
 }
