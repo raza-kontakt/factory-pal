@@ -6,7 +6,7 @@ module.exports = {
     '^.+\\.(ts|tsx)$': 'babel-jest',
     '^.+\\.(js|jsx)$': 'babel-jest',
   },
-  testMatch: ['**/__tests__/**/*.(ts|tsx|js)', '**/*.(test|spec).(ts|tsx|js)'],
+  testMatch: ['**/__tests__/**/*.(ts|tsx|js|jsx)', '**/*.(test|spec).(ts|tsx|js|jsx)'],
   collectCoverageFrom: [
     'src/**/*.{ts,tsx}',
     '!src/**/*.d.ts',

@@ -1,26 +1,3 @@
-2. Simple UI Components
-   components/ui/ErrorState.tsx
-   Why test: Clear conditional rendering behavior
-   Test cases:
-   Renders with required props (title)
-   Conditionally renders description when provided
-   Conditionally renders action button when both text and handler provided
-   onClick handler is called when action button clicked
-   Applies custom minHeight
-   components/ui/Heading.tsx
-   Why test: Component with variants and styling
-   Test cases:
-   Renders with different variants (h1-h6)
-   Applies default variant (h4) when not specified
-   Renders children correctly
-   Applies custom props and styling
-   components/ui/Loading.tsx
-   Why test: Component with size variations and calculations
-   Test cases:
-   Renders correct number of skeletons based on size
-   Applies correct skeleton height based on size
-   Generates different width variants for skeletons
-   Applies proper styling and animation
 
 3. Interactive Components
    components/common/LanguageSwitch.tsx
