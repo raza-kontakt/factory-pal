@@ -1,17 +1,14 @@
 describe("Shift Details Page Tests", () => {
   const SELECTORS = {
-    // Navigation
     backButton: "[data-testid='back-button']",
     pageTitle: "[data-testid='heading']",
 
-    // Shift Header Section
     shiftIdSection: "[data-testid='shift-id']",
     shiftDateSection: "[data-testid='shift-date']",
     shiftDurationSection: "[data-testid='shift-duration']",
     shiftStatusSection: "[data-testid='shift-status']",
     statusChip: ".MuiChip-root",
 
-    // Chart Section
     chartContainer: ".recharts-wrapper",
     chartBars: ".recharts-bar-rectangle",
     chartXAxis: ".recharts-xAxis",
@@ -19,7 +16,6 @@ describe("Shift Details Page Tests", () => {
     chartTooltip: ".recharts-tooltip-wrapper",
     chartLegend: ".recharts-legend-wrapper",
 
-    // AI Summary Section
     aiSummaryButton: "button[data-testid='ai-summary-button']",
     aiSummaryCard: "[data-testid='ai-summary-card']",
     aiSummaryContent: "[data-testid='ai-summary-content']",
@@ -28,22 +24,19 @@ describe("Shift Details Page Tests", () => {
     aiSummaryContainer: "[data-testid='ai-summary-container']",
     aiSummaryClose: "[data-testid='ai-summary-close']",
 
-    // Filters Section
     filterChips: ".MuiChip-root",
     filterContainer: "[data-testid='filter-container']",
     shiftFilterChip: "[data-testid='shift-filter-chip']",
 
-    // General
     body: "body",
     errorMessage: "[data-testid='error-message']",
     loadingIndicator: "[data-testid='loading']",
   };
 
   const TEST_SHIFT_ID = "WEB-01";
-  const SHIFT_DETAIL_URL = `http://localhost:5173/shift/${TEST_SHIFT_ID}`;
+  const SHIFT_DETAIL_URL = `/shift/${TEST_SHIFT_ID}`;
   const HOME_URL = "http://localhost:5173/";
 
-  // Helper functions
   const navigateToShiftDetails = () => {
     cy.visit(SHIFT_DETAIL_URL);
     cy.get(SELECTORS.pageTitle, { timeout: 10000 }).should("be.visible");

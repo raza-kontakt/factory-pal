@@ -46,7 +46,7 @@ describe("Language Switch Tests", () => {
   };
 
   beforeEach(() => {
-    cy.visit("http://localhost:5173/");
+    cy.visit("/");
     waitForLanguageSwitch();
   });
 
@@ -61,7 +61,7 @@ describe("Language Switch Tests", () => {
   it("should switch language and update text", () => {
     switchToLanguage(LANGUAGES.german);
     verifyLanguageState(LANGUAGES.german);
-    
+
     switchToLanguage(LANGUAGES.english);
     verifyLanguageState(LANGUAGES.english);
   });
@@ -69,7 +69,7 @@ describe("Language Switch Tests", () => {
   it("should persist language after page refresh", () => {
     switchToLanguage(LANGUAGES.german);
     verifyLanguageState(LANGUAGES.german);
-    
+
     cy.reload();
     waitForLanguageSwitch();
     verifyLanguageState(LANGUAGES.german);
@@ -77,21 +77,19 @@ describe("Language Switch Tests", () => {
 
   it("should persist language across navigation", () => {
     switchToLanguage(LANGUAGES.german);
-    
-    cy.visit("http://localhost:5173/shift/WEB-01");
+
+    cy.visit("/shift/WEB-01");
     cy.get(SELECTORS.languageSwitch).should("contain", LANGUAGES.german.name);
-    
+
     cy.go("back");
     cy.get(SELECTORS.languageSwitch).should("contain", LANGUAGES.german.name);
   });
 
   it("should maintain language on 404 page", () => {
     switchToLanguage(LANGUAGES.german);
-    
-    cy.visit("http://localhost:5173/mango");
+
+    cy.visit("/mango");
     cy.get(SELECTORS.languageSwitch).should("contain", LANGUAGES.german.name);
     cy.get(SELECTORS.body).should("contain", LANGUAGES.german.notFoundText);
   });
 });
-
-

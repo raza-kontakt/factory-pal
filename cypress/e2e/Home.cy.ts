@@ -54,7 +54,7 @@ describe("Shifts List Page Tests", () => {
   };
 
   beforeEach(() => {
-    cy.visit("http://localhost:5173/");
+    cy.visit("/");
     waitForPageLoad();
   });
 
@@ -64,7 +64,7 @@ describe("Shifts List Page Tests", () => {
 
       getShiftIdsFromTable().then((shiftIds) => {
         shiftIds.forEach((shiftId) => {
-          cy.visit("http://localhost:5173/");
+          cy.visit("/");
           verifyShiftNavigation(shiftId);
           cy.go("back");
         });
