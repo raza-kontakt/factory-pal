@@ -1,6 +1,16 @@
 import moment from "moment";
 import type { Shift, Log } from "../types/Shift";
 
+export interface ParsedShift extends Shift {
+  computed: {
+    duration: { value: number; unit: string };
+    oee: number | undefined;
+    cleaningTime: { value: number; unit: string };
+    totalDowntime: { value: number; unit: string };
+    availability: { value: number; unit: string };
+  };
+}
+
 export const convertToMinutes = (value: number, unit: string): number => {
   const unitMap: { [key: string]: moment.unitOfTime.DurationConstructor } = {
     secs: "seconds",
@@ -42,16 +52,6 @@ export const transformLogsForDisplay = (
 ): (Log & { displayValue: number })[] => {
   return logs.map(transformLogForDisplay);
 };
-
-export interface ParsedShift extends Shift {
-  computed: {
-    duration: { value: number; unit: string };
-    oee: number | undefined;
-    cleaningTime: { value: number; unit: string };
-    totalDowntime: { value: number; unit: string };
-    availability: { value: number; unit: string };
-  };
-}
 
 export const computeShiftData = (shift: Shift): ParsedShift => {
   const duration =

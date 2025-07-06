@@ -15,7 +15,7 @@ import type { Log, Shift } from "../../../types/Shift";
 import { useChartData } from "../../../hooks/useShiftData";
 import { CATEGORY_COLORS } from "../../../utils/consts/chartConstants";
 import { colors } from "../../../utils/consts/colors";
-import { formatTickLabel, formatYAxisValue } from "../../../utils";
+import { formatTickLabel, formatYAxisValue } from "../../../utils/chartUtils";
 
 interface ShiftBarChartProps {
   shift: Shift;

@@ -26,7 +26,6 @@ const ShiftTable: React.FC<ShiftTableProps> = ({
     return colorMap[category] || "default";
   };
 
-  // Filter logs based on selected category
   const filteredLogs =
     selectedCategory === "All"
       ? shift.logs

@@ -1,16 +1,5 @@
 import type { Log, Shift } from "../types/Shift";
-import {
-  computeShiftData,
-  type ParsedShift,
-  transformLogsForDisplay,
-} from "../utils/shiftParser";
-
-export const useShiftData = (
-  shift: Shift | undefined
-): ParsedShift | undefined => {
-  if (!shift) return undefined;
-  return computeShiftData(shift);
-};
+import { transformLogsForDisplay } from "../utils/shiftParser";
 
 export interface UseChartDataProps {
   shift: Shift;

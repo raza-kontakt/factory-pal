@@ -20,5 +20,3 @@ export const getErrorData = (error: Error, errorInfo: ErrorInfo): ErrorData => {
 export const wait = async (ms: number): Promise<void> => {
   await new Promise((resolve) => setTimeout(resolve, ms));
 };
-
-export * from "./chartUtils";

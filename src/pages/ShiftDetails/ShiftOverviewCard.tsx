@@ -33,7 +33,7 @@ const ShiftOverViewCard = ({
             </Typography>
           </Box>
           <Box flex="1" minWidth="200px">
-            <Typography variant="h6" color="primary" gutterBottom>
+            <Typography variant="h6" color="primary" fontWeight={700} gutterBottom>
               {t("shiftDetails.date")}
             </Typography>
             <Typography variant="body1" fontWeight={500}>
