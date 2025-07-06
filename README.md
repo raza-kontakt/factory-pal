@@ -54,6 +54,7 @@ FactoryPal is an interactive web application that transforms large amounts of fa
 
 ### Core Technologies
 - **React 19.1.0** - Modern React with latest features
+- **React Compiler 19.1.0-rc.2** - Automatic optimization and memoization
 - **TypeScript 5.8.3** - Type-safe development
 - **Vite 7.0.0** - Fast build tool and dev server
 - **Material-UI 7.2.0** - Modern component library
@@ -231,6 +232,7 @@ cypress/
 - **Compression**: Gzip compression enabled
 
 ### Runtime Performance
+- **React Compiler**: Automatic optimization and memoization at compile time
 - **React Query**: Intelligent caching and background updates
 - **Memoization**: Expensive calculations are memoized
 - **Virtualization**: Large lists are virtualized
