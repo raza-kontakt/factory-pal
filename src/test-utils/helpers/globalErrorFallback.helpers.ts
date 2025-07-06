@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import { TestWrapper } from "../utils/TestWrapper";
-import GlobalErrorFallback from "../../app/components/common/GlobalErrorFallback";
+import GlobalErrorFallback from "../../components/common/GlobalErrorFallback";
 import { expectedElements } from "../fixtures/globalErrorFallback.fixtures";
 
 export const renderGlobalErrorFallback = (

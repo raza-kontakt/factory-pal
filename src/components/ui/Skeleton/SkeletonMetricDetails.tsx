@@ -7,7 +7,7 @@ const cardConfigs = [
   { borderTopColor: "#22c55e", width: 90, labelWidth: 120 },
 ];
 
-const SkeltonMetricDetails = () => {
+const SkeletonMetricDetails = () => {
   return (
     <Box sx={{ mb: 6 }}>
       <Box
@@ -69,4 +69,4 @@ const SkeltonMetricDetails = () => {
   );
 };
 
-export default SkeltonMetricDetails;
+export default SkeletonMetricDetails;

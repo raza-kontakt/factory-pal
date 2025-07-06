@@ -1,5 +1,5 @@
-import enTranslations from "../../app/locales/en/translation.json";
-import deTranslations from "../../app/locales/de/translation.json";
+import enTranslations from "../../locales/en/translation.json";
+import deTranslations from "../../locales/de/translation.json";
 
 export const errorTranslations = {
   en: enTranslations.error,

@@ -24,6 +24,7 @@ interface ShiftBarChartProps {
   showLegend?: boolean;
   className?: string;
   selectedCategory?: string;
+  shiftLogCategories: string[];
   onCategoryChange?: (category: string) => void;
 }
 
@@ -33,9 +34,10 @@ const BarChart: React.FC<ShiftBarChartProps> = ({
   showLegend = true,
   className,
   selectedCategory = "All",
+  shiftLogCategories,
   onCategoryChange,
 }) => {
-  const { chartData, filteredLogs, allCategories } = useChartData({
+  const { chartData, filteredLogs } = useChartData({
     shift,
     selectedCategory,
   });
@@ -72,7 +74,7 @@ const BarChart: React.FC<ShiftBarChartProps> = ({
             />
 
             <ChartLegend
-              categories={allCategories}
+              categories={shiftLogCategories}
               selectedCategory={selectedCategory}
               onCategoryChange={onCategoryChange}
               showLegend={showLegend}

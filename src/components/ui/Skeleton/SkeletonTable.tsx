@@ -2,7 +2,7 @@ import { Box, Card, CardContent, Skeleton } from "@mui/material";
 
 const tableHeaders = [80, 120, 60, 80, 70];
 
-const SkeltonTable = () => {
+const SkeletonTable = () => {
   return (
     <Box sx={{ mb: 4 }}>
       <Card
@@ -81,4 +81,4 @@ const SkeltonTable = () => {
   );
 };
 
-export default SkeltonTable;
+export default SkeletonTable;

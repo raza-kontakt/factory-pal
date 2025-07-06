@@ -7,8 +7,8 @@ import {
   type SkeletonProps,
 } from "@mui/material";
 import Container from "../../components/common/Container";
-import SkeltonMetricDetails from "../../components/ui/Skelton/SkeltonMetricDetails";
-import SkeltonTable from "../../components/ui/Skelton/SkeltonTable";
+import SkeletonMetricDetails from "../../components/ui/Skeleton/SkeletonMetricDetails";
+import SkeletonTable from "../../components/ui/Skeleton/SkeletonTable";
 
 const detailFields = [
   { labelWidth: 80, valueWidth: 120 },
@@ -76,9 +76,9 @@ const ShiftDetailsSkeleton: React.FC = () => {
         </Card>
       </Box>
 
-      <SkeltonMetricDetails />
+      <SkeletonMetricDetails />
 
-      <SkeltonTable />
+      <SkeletonTable />
     </Container>
   );
 };

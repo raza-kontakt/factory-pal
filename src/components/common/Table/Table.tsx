@@ -9,7 +9,7 @@ import {
   TableRow,
 } from "@mui/material";
 import StyledTableRow from "./StyledTableRow";
-import SkeltonTable from "../../ui/Skelton/SkeltonTable";
+import SkeletonTable from "../../ui/Skeleton/SkeletonTable";
 
 interface Column {
   Header: string;
@@ -29,7 +29,7 @@ const Table = <T extends Record<string, ReactNode>>({
   loading,
   onRowClick,
 }: TableProps<T>) => {
-  if (loading) return <SkeltonTable />;
+  if (loading) return <SkeletonTable />;
 
   const isOnRowClickEnabled = typeof onRowClick === "function";
 
