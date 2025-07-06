@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "factory-pal-6c4b7",
     "public": "dist",
     "ignore": [
       "firebase.json",
