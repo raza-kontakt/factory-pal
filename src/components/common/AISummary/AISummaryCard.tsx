@@ -34,14 +34,17 @@ const AISummaryCard = ({
   if (!summaryData || !isSummarySuccess || !showSummary) return null;
 
   return (
-    <SummaryCard>
+    <SummaryCard data-testid="ai-summary-card">
       <SummaryCardContent>
         <SummaryHeader>
           <SummaryHeaderLeft>
             <AutoAwesome sx={{ color: colors.primary.main }} />
             <SummaryTitle variant="h6">{t("aiSummary.title")}</SummaryTitle>
           </SummaryHeaderLeft>
-          <CloseButton onClick={handleCloseSummary}>
+          <CloseButton
+            onClick={handleCloseSummary}
+            data-testid="ai-summary-close"
+          >
             <Close />
           </CloseButton>
         </SummaryHeader>

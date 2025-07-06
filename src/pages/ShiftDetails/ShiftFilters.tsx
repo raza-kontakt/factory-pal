@@ -21,7 +21,7 @@ const ShiftFilters: React.FC<ShiftFiltersProps> = ({
   };
 
   return (
-    <Box mb={2}>
+    <Box mb={2} >
       {shiftLogCategories.map((category) => (
         <Chip
           key={category}
@@ -30,6 +30,7 @@ const ShiftFilters: React.FC<ShiftFiltersProps> = ({
           variant={selectedCategory === category ? "filled" : "outlined"}
           size="medium"
           onClick={() => onCategoryChange(category)}
+          data-testid="shift-filter-chip"
           sx={{
             marginRight: 1,
             cursor: "pointer",

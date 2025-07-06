@@ -13,7 +13,7 @@ const Heading: React.FC<HeadingProps> = ({
   ...props
 }) => {
   return (
-    <StyledHeading variant={variant} {...props}>
+    <StyledHeading variant={variant} {...props} data-testid="heading">
       {children}
     </StyledHeading>
   );

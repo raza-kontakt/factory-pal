@@ -39,7 +39,7 @@ const AISummary: React.FC<AISummaryProps> = ({ shift }) => {
   };
 
   return (
-    <SummaryContainer>
+    <SummaryContainer data-testid="ai-summary-container">
       <ButtonContainer>
         <StyledButton
           variant="contained"

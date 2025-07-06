@@ -1,6 +1,6 @@
 describe("Shifts List Page Tests", () => {
   const SELECTORS = {
-    pageTitle: "h4",
+    pageTitle: "[data-testid='heading']",
     table: "table",
     tableHeader: "th",
     tableRow: "tbody tr",
