@@ -15,7 +15,23 @@ export default defineConfig({
       runMode: 2,
       openMode: 0,
     },
-    setupNodeEvents(on, config) {
+    reporter: 'cypress-mochawesome-reporter',
+    reporterOptions: {
+      charts: true,
+      reportPageTitle: 'Factory Pal Cypress Tests',
+      embeddedScreenshots: true,
+      inlineAssets: true,
+      saveAllAttempts: false,
+      reportDir: 'cypress/reports',
+      overwrite: false,
+      html: true,
+      json: true,
+      timestamp: 'mmddyyyy_HHMMss'
+    },
+    async setupNodeEvents(on, config) {
+      const { default: reporter } = await import('cypress-mochawesome-reporter/plugin.js');
+      reporter(on);
+
       if (config.env.ENVIRONMENT === "production") {
         config.baseUrl =
           config.env.PROD_URL || "https://factory-pal-6c4b7.firebaseapp.com/";

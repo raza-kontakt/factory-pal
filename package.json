@@ -12,7 +12,13 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "cy:open": "npx cypress open",
-    "cy:run": "npx cypress run"
+    "cy:run": "npx cypress run",
+    "cy:run:report": "npx cypress run --reporter cypress-mochawesome-reporter",
+    "cy:run:headless": "npx cypress run --headless",
+    "cy:report:generate": "npx mochawesome-merge cypress/reports/*.json > cypress/reports/combined-report.json && npx marge cypress/reports/combined-report.json --reportDir cypress/reports/html --inline",
+    "cy:report:open": "find cypress/reports -name '*.html' -type f | head -1 | xargs open",
+    "cy:report:clean": "rm -rf cypress/reports/*",
+    "cy:test:full": "npm run cy:report:clean && npm run cy:run:report && npm run cy:report:open"
   },
   "dependencies": {
     "@mui/icons-material": "^7.2.0",
@@ -50,6 +56,7 @@
     "babel-jest": "^30.0.4",
     "babel-plugin-react-compiler": "^19.1.0-rc.2",
     "cypress": "^14.5.1",
+    "cypress-mochawesome-reporter": "^3.8.2",
     "eslint": "^9.29.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
@@ -57,6 +64,9 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^30.0.4",
     "jest-environment-jsdom": "^30.0.4",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.4.1",
+    "mochawesome-report-generator": "^6.2.0",
     "ts-node": "^10.9.2",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.34.1",
