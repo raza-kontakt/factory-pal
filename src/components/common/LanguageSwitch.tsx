@@ -22,17 +22,22 @@ const LanguageSwitch: React.FC = () => {
 
   return (
     <LanguageSwitchContainer>
-      <LanguageButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
+      <LanguageButton 
+        data-testid="language-switch"
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+      >
         <Flag>{currentLanguage?.flag}</Flag>
         <span>{currentLanguage?.name}</span>
         <KeyboardArrowDown />
       </LanguageButton>
 
-      <DropdownMenu $isOpen={isMenuOpen}>
+      <DropdownMenu $isOpen={isMenuOpen} data-testid="language-dropdown">
         {languages.map((language) => (
           <DropdownItem
             key={language.code}
             $isSelected={language.code === i18n.language}
+            data-testid={`language-option-${language.code}`}
+            data-selected={language.code === i18n.language}
             onClick={() => handleLanguageChange(language.code)}
           >
             <Flag>{language.flag}</Flag>
