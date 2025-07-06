@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "clean": "rm -rf dist && rm -rf node_modules && npm install",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
@@ -14,11 +15,9 @@
     "cy:open": "npx cypress open",
     "cy:run": "npx cypress run",
     "cy:run:report": "npx cypress run --reporter cypress-mochawesome-reporter",
-    "cy:run:headless": "npx cypress run --headless",
-    "cy:report:generate": "npx mochawesome-merge cypress/reports/*.json > cypress/reports/combined-report.json && npx marge cypress/reports/combined-report.json --reportDir cypress/reports/html --inline",
     "cy:report:open": "find cypress/reports -name '*.html' -type f | head -1 | xargs open",
-    "cy:report:clean": "rm -rf cypress/reports/*",
-    "cy:test:full": "npm run cy:report:clean && npm run cy:run:report && npm run cy:report:open"
+    "cy:report:clean": "rm -rf cypress/reports/* && npm run cy:run:report && npm run cy:report:open",
+    "deploy": "firebase deploy"
   },
   "dependencies": {
     "@mui/icons-material": "^7.2.0",
