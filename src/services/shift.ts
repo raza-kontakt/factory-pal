@@ -4,7 +4,7 @@ import factoryAnalyticsDataDe from "../utils/consts/factory_analytics_data_de";
 import { wait } from "../utils";
 import { getParsedShift } from "../utils/shiftParser";
 
-const STANDARD_MOCK_WAIT_TIME = 200;
+const STANDARD_MOCK_WAIT_TIME = 500;
 
 const getDataByLanguage = (language: string = "en") => {
   return language === "de" ? factoryAnalyticsDataDe : factoryAnalyticsData;

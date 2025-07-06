@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import { colors } from "../../utils/consts/colors";
 import { KeyboardArrowDown } from "@mui/icons-material";
+import { Box } from "@mui/material";
 
 const LanguageSwitch: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -27,7 +28,7 @@ const LanguageSwitch: React.FC = () => {
         onClick={() => setIsMenuOpen(!isMenuOpen)}
       >
         <Flag>{currentLanguage?.flag}</Flag>
-        <span>{currentLanguage?.name}</span>
+        <Box>{currentLanguage?.name}</Box>
         <KeyboardArrowDown />
       </LanguageButton>
 
@@ -41,7 +42,7 @@ const LanguageSwitch: React.FC = () => {
             onClick={() => handleLanguageChange(language.code)}
           >
             <Flag>{language.flag}</Flag>
-            <span>{language.name}</span>
+            <Box>{language.name}</Box>
           </DropdownItem>
         ))}
       </DropdownMenu>

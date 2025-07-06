@@ -141,3 +141,11 @@ export const getParsedShift = (shift: Shift): Shift => {
     logs: shiftUpdatedLogs,
   };
 };
+
+export const getChipColor = (category: string) => {
+  const colorMap = shiftCategoryColors as Record<
+    string,
+    "success" | "error" | "warning"
+  >;
+  return colorMap[category] || "default";
+};

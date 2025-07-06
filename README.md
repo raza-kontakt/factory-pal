@@ -11,6 +11,12 @@
 
 FactoryPal is an interactive web application that transforms large amounts of factory data into meaningful business insights through a friendly and interactive UI. The application presents metrics data through interconnected charts and tables, specifically designed for LEGO action figure production lines.
 
+## 🌐 Live Demo
+
+**[🚀 View Live Demo](https://cheerful-meerkat-fc42f8.netlify.app/)**
+
+*Experience the full interactive dashboard with live data visualization and AI-powered insights*
+
 ### 📸 Screenshots
 
 #### Home Dashboard

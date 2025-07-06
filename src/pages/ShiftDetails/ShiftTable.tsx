@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
 import type { Log, Shift } from "../../types/Shift";
-import { shiftCategoryColors } from "../../utils/shiftParser";
 import Table from "../../components/common/Table/Table";
 import { Box, Chip } from "@mui/material";
 import type { ReactNode } from "react";
+import { getChipColor } from "../../utils/shiftParser";
 
 interface ShiftTableProps {
   shift: Shift;
@@ -17,14 +17,6 @@ const ShiftTable: React.FC<ShiftTableProps> = ({
   onCategoryChange,
 }) => {
   const { t } = useTranslation();
-
-  const getChipColor = (category: string) => {
-    const colorMap = shiftCategoryColors as Record<
-      string,
-      "success" | "error" | "warning"
-    >;
-    return colorMap[category] || "default";
-  };
 
   const filteredLogs =
     selectedCategory === "All"

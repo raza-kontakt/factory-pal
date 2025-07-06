@@ -17,7 +17,7 @@ export const useAISummary = (options?: UseAISummaryOptions) => {
   const queryClient = useQueryClient();
 
   const mutation = useMutation({
-    mutationFn: ({ shift, language = "en" }: GenerateSummaryParams) => 
+    mutationFn: ({ shift, language = "en" }: GenerateSummaryParams) =>
       generateAISummary(shift, language),
     onSuccess: (data) => {
       queryClient.setQueryData(["ai-summary", data.shiftId], data);
@@ -28,7 +28,6 @@ export const useAISummary = (options?: UseAISummaryOptions) => {
       options?.onError?.(error);
     },
     retry: 2,
-    retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
   });
 
   return {

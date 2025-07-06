@@ -38,9 +38,7 @@ const Home = () => {
         data={parsedShifts}
         columns={columns}
         loading={isLoading}
-        onRowClick={(row) => {
-          navigate(`/shift/${row.id}`);
-        }}
+        onRowClick={(row) => navigate(`/shift/${row.id}`)}
       />
     </Container>
   );
