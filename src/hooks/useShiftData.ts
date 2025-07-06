@@ -8,7 +8,6 @@ export interface UseChartDataProps {
 
 export interface UseChartDataReturn {
   chartData: (Log & { displayValue: number })[];
-  filteredLogs: Log[];
   totalLogs: number;
 }
 
@@ -25,7 +24,6 @@ export const useChartData = ({
 
   return {
     chartData,
-    filteredLogs,
     totalLogs: shift.logs.length,
   };
 };

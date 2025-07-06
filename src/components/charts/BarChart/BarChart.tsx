@@ -37,7 +37,7 @@ const BarChart: React.FC<ShiftBarChartProps> = ({
   shiftLogCategories,
   onCategoryChange,
 }) => {
-  const { chartData, filteredLogs } = useChartData({
+  const { chartData } = useChartData({
     shift,
     selectedCategory,
   });
@@ -58,7 +58,7 @@ const BarChart: React.FC<ShiftBarChartProps> = ({
             <XAxis
               dataKey="id"
               tick={{ fontSize: 12, fill: "#6b7280" }}
-              tickFormatter={(value) => formatTickLabel(value, filteredLogs)}
+              tickFormatter={(value) => formatTickLabel(value, chartData)}
               angle={-45}
               textAnchor="end"
               height={80}

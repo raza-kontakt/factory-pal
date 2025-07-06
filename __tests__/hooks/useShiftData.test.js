@@ -53,10 +53,9 @@ describe("useChartData", () => {
       useChartData({ shift: mockShift, selectedCategory: "All" })
     );
 
-    const { filteredLogs, totalLogs } = result.current;
+    const { chartData, totalLogs } = result.current;
 
-    expect(filteredLogs).toHaveLength(5);
-    expect(filteredLogs).toEqual(mockShift.logs);
+    expect(chartData).toHaveLength(5);
     expect(totalLogs).toBe(5);
   });
 
@@ -65,11 +64,11 @@ describe("useChartData", () => {
       useChartData({ shift: mockShift, selectedCategory: "shift" })
     );
 
-    const { filteredLogs, totalLogs } = result.current;
+    const { chartData, totalLogs } = result.current;
 
-    expect(filteredLogs).toHaveLength(2);
-    expect(filteredLogs[0].category).toBe("shift");
-    expect(filteredLogs[1].category).toBe("shift");
+    expect(chartData).toHaveLength(2);
+    expect(chartData[0].category).toBe("shift");
+    expect(chartData[1].category).toBe("shift");
     expect(totalLogs).toBe(5);
   });
 
@@ -89,9 +88,8 @@ describe("useChartData", () => {
   it("defaults to 'All' when NOO selectedCategory provided", () => {
     const { result } = renderHook(() => useChartData({ shift: mockShift }));
 
-    const { filteredLogs } = result.current;
+    const { chartData } = result.current;
 
-    expect(filteredLogs).toHaveLength(5);
-    expect(filteredLogs).toEqual(mockShift.logs);
+    expect(chartData).toHaveLength(5);
   });
 });

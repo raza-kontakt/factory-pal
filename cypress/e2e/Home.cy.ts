@@ -37,7 +37,7 @@ describe("Shifts List Page Tests", () => {
   const getShiftIdsFromTable = () => {
     return cy.get(SELECTORS.tableRow).then(($rows) => {
       const shiftIds: string[] = [];
-      $rows.each((index, row) => {
+      $rows.each((_, row) => {
         const firstCell = Cypress.$(row).find(SELECTORS.tableCell).first();
         const shiftId = firstCell.text().trim();
         if (shiftId) {
