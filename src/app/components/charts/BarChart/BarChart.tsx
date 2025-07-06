@@ -1,36 +1,33 @@
 import React from "react";
 import {
-  BarChart,
+  BarChart as RechartsBarChart,
   Bar,
   XAxis,
   YAxis,
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
-  Legend,
   Cell,
 } from "recharts";
 import styled from "styled-components";
-import type { FactoryAnalyticsData } from "../../../consts/factory_analytics_data";
-import CustomTooltip from "./CustomTooltip";
-import { useTranslation } from "react-i18next";
+import CustomTooltip from "./ChartTooltip";
+import ChartLegend from "./ChartLegend";
+import type { Log, Shift } from "../../../types/Shift";
+import { useChartData } from "../../../hooks/useShiftData";
+import { CATEGORY_COLORS } from "../../../utils/consts/chartConstants";
 
-const CATEGORY_COLORS: Record<string, string> = {
-  efficiency: "#10b981",
-  shift: "#3b82f6",
-  downtime: "#ef4444",
-};
-
-interface FactoryAnalyticsBarChartProps {
-  data: FactoryAnalyticsData;
+interface ShiftBarChartProps {
+  shift: Shift;
   height?: number;
   showTitle?: boolean;
   showLegend?: boolean;
   className?: string;
+  selectedCategory?: string;
+  onCategoryChange?: (category: string) => void;
 }
 
-const formatTickLabel = (value: string, data: FactoryAnalyticsData) => {
-  const item = data.find((d) => d.id === value);
+const formatTickLabel = (value: string, data: Log[]): string => {
+  const item = data.find((d: Log) => d.id === value);
   const label = item ? item.label : value;
 
   if (window.innerWidth < 768 && label.length > 8) {
@@ -40,29 +37,25 @@ const formatTickLabel = (value: string, data: FactoryAnalyticsData) => {
   return label;
 };
 
-const FactoryAnalyticsBarChart: React.FC<FactoryAnalyticsBarChartProps> = ({
-  data,
-  height = 400,
-  showTitle = true,
+const BarChart: React.FC<ShiftBarChartProps> = ({
+  shift,
+  height = 500,
   showLegend = true,
   className,
+  selectedCategory = "All",
+  onCategoryChange,
 }) => {
-  const chartData = data.map((item) => ({
-    ...item,
-    displayValue: item.value,
-  }));
+  const { chartData, filteredLogs, allCategories } = useChartData({
+    shift,
+    selectedCategory,
+  });
 
-  const categories = Array.from(new Set(data.map((item) => item.category)));
-
-  const { t } = useTranslation();
 
   return (
     <ChartContainer className={className}>
-      {showTitle && <ChartTitle>{t("chart.barChart.title")}</ChartTitle>}
-
       <ChartWrapper style={{ height: `${height}px` }}>
         <ResponsiveContainer width="100%" height="100%">
-          <BarChart
+          <RechartsBarChart
             data={chartData}
             margin={{
               top: 20,
@@ -79,7 +72,7 @@ const FactoryAnalyticsBarChart: React.FC<FactoryAnalyticsBarChartProps> = ({
             <XAxis
               dataKey="id"
               tick={{ fontSize: 12, fill: "#6b7280" }}
-              tickFormatter={(value) => formatTickLabel(value, data)}
+              tickFormatter={(value) => formatTickLabel(value, filteredLogs)}
               angle={-45}
               textAnchor="end"
               height={80}
@@ -88,7 +81,6 @@ const FactoryAnalyticsBarChart: React.FC<FactoryAnalyticsBarChartProps> = ({
             <YAxis
               tick={{ fontSize: 12, fill: "#6b7280" }}
               tickFormatter={(value) => {
-                // Format large numbers
                 if (Math.abs(value) >= 1000) {
                   return `${(value / 1000).toFixed(1)}k`;
                 }
@@ -100,68 +92,27 @@ const FactoryAnalyticsBarChart: React.FC<FactoryAnalyticsBarChartProps> = ({
               cursor={{ fill: "rgba(0, 0, 0, 0.05)" }}
             />
 
-            {showLegend && (
-              <Legend
-                wrapperStyle={{ paddingTop: "20px" }}
-                content={() => {
-                  return (
-                    <div
-                      style={{
-                        display: "flex",
-                        justifyContent: "center",
-                        gap: "20px",
-                        flexWrap: "wrap",
-                      }}
-                    >
-                      {categories.map((category) => (
-                        <div
-                          key={category}
-                          style={{
-                            display: "flex",
-                            alignItems: "center",
-                            gap: "8px",
-                          }}
-                        >
-                          <div
-                            style={{
-                              width: "12px",
-                              height: "12px",
-                              backgroundColor:
-                                CATEGORY_COLORS[category] || "#6b7280",
-                              borderRadius: "2px",
-                            }}
-                          />
-                          <span
-                            style={{
-                              fontSize: "12px",
-                              color: "#6b7280",
-                              textTransform: "capitalize",
-                            }}
-                          >
-                            {category}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  );
-                }}
-              />
-            )}
+            <ChartLegend
+              categories={allCategories}
+              selectedCategory={selectedCategory}
+              onCategoryChange={onCategoryChange}
+              showLegend={showLegend}
+            />
 
             <Bar
               dataKey="displayValue"
               radius={[8, 8, 0, 0]}
-              strokeWidth={2}
-              stroke="#cococo"
+              strokeWidth={1}
+              stroke="#c0c0c0"
             >
-              {chartData.map((entry, index) => (
+              {chartData.map((entry: Log, index: number) => (
                 <Cell
                   key={`cell-${index}`}
-                  fill={CATEGORY_COLORS[entry.category] || "#6b7280"}
+                  fill={CATEGORY_COLORS[entry?.category] || "#6b7280"}
                 />
               ))}
             </Bar>
-          </BarChart>
+          </RechartsBarChart>
         </ResponsiveContainer>
       </ChartWrapper>
     </ChartContainer>
@@ -177,14 +128,6 @@ const ChartContainer = styled.div`
   margin: 16px 0;
 `;
 
-const ChartTitle = styled.h2`
-  color: #1f2937;
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin: 0 0 24px 0;
-  text-align: center;
-`;
-
 const ChartWrapper = styled.div`
   width: 100%;
   height: 400px;
@@ -198,4 +141,4 @@ const ChartWrapper = styled.div`
   }
 `;
 
-export default FactoryAnalyticsBarChart;
+export default BarChart;

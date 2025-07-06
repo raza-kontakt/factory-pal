@@ -1,0 +1,73 @@
+{
+  "common": {
+    "yes": "Ja",
+    "no": "Nein"
+  },
+  "home": {
+    "title": "Startseite",
+    "shifts": "Schichten"
+  },
+  "navbar": {
+    "languageSwitch": "Sprache",
+    "english": "Englisch",
+    "german": "Deutsch"
+  },
+  "table": {
+    "columns": {
+      "id": "ID",
+      "name": "Name",
+      "date": "Datum",
+      "description": "Beschreibung",
+      "completed": "Abgeschlossen"
+    },
+    "logs": {
+      "id": "ID",
+      "label": "Label",
+      "value": "Wert",
+      "type": "Typ",
+      "description": "Beschreibung",
+      "category": "Kategorie"
+    }
+  },
+  "shiftDetails": {
+    "shiftId": "Schicht-ID",
+    "date": "Datum",
+    "status": "Status",
+    "description": "Beschreibung",
+    "completed": "Abgeschlossen",
+    "inProgress": "In Bearbeitung",
+    "shiftDuration": "Schichtdauer"
+  },
+  "metrics": {
+    "overallEquipmentEfficiency": "Gesamtanlageneffizienz",
+    "totalDowntime": "Gesamtausfallzeit",
+    "cleaningTime": "Reinigungszeit",
+    "productionLoss": "Produktionsverlust",
+    "availability": "Verfügbarkeit"
+  },
+  "aiSummary": {
+    "title": "KI-Generierte Zusammenfassung",
+    "generateButton": "KI-Zusammenfassung",
+    "generating": "Wird generiert...",
+    "close": "Schließen",
+    "words": "Wörter"
+  },
+  "error": {
+    "title": "Ups! Etwas ist schief gelaufen",
+    "description": "Es tut uns leid für die Unannehmlichkeiten. Ein unerwarteter Fehler ist aufgetreten.",
+    "errorLabel": "Fehler:",
+    "tryAgain": "Nochmal versuchen",
+    "reloadPage": "Seite neu laden",
+    "supportMessage": "Wenn dieses Problem weiterhin besteht, wenden Sie sich bitte an den Support.",
+    "pageNotFound": "Seite nicht gefunden",
+    "pageNotFoundDescription": "Die Seite, die Sie suchen, existiert nicht oder wurde verschoben.",
+    "shiftNotFound": "Schicht nicht gefunden",
+    "shiftNotFoundDescription": "Die Schicht, die Sie suchen, existiert nicht oder wurde entfernt.",
+    "goToHome": "Zur Startseite"
+  },
+  "chart": {
+    "barChart": {
+      "title": "Fabrikanalyse"
+    }
+  }
+}

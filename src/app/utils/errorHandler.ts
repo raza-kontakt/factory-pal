@@ -10,7 +10,6 @@ export const handleGlobalError = (error: Error, errorInfo: ErrorInfo) => {
 
   if (process.env.NODE_ENV === "production") {
     console.error("Production Error:", errorData);
-
     // TODO: Send error to error reporting service
   }
 };

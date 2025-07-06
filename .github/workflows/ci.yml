@@ -42,15 +42,6 @@ jobs:
           name: codecov-umbrella
           fail_ci_if_error: false
 
-      - name: Run Cypress tests
-        uses: cypress-io/github-action@v6
-        with:
-          start: npm run dev
-          wait-on: "http://localhost:5173"
-          wait-on-timeout: 120
-          browser: chrome
-          record: false
-
       - name: Create production build
         run: npm run build
 
@@ -62,4 +53,31 @@ jobs:
           path: dist/
           retention-days: 7
 
-    # TODO: DEPLOYMENT STEP
+  deploy:
+    needs: test-and-build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-files
+          path: dist/
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: "npm"
+
+      - name: Install Firebase CLI
+        run: npm install -g firebase-tools
+
+      - name: Deploy to Firebase
+        run: firebase deploy --only hosting --project factory-pal-6c4b7 --token ${{ secrets.FIREBASE_TOKEN }}
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

@@ -1,14 +1,11 @@
-// Import actual translations
-import enTranslations from "../../app/locates/en/translation.json";
-import deTranslations from "../../app/locates/de/translation.json";
+import enTranslations from "../../app/locales/en/translation.json";
+import deTranslations from "../../app/locales/de/translation.json";
 
-// Extract error translations
 export const errorTranslations = {
   en: enTranslations.error,
   de: deTranslations.error,
 };
 
-// Translation map for tests (using English as default)
 export const testTranslations: Record<string, string> = {
   "error.title": errorTranslations.en.title,
   "error.description": errorTranslations.en.description,
@@ -17,7 +14,6 @@ export const testTranslations: Record<string, string> = {
   "error.supportMessage": errorTranslations.en.supportMessage,
 };
 
-// Test error objects
 export const testErrors = {
   basic: new Error("Test error"),
   withoutMessage: (() => {
@@ -67,7 +63,6 @@ export const testErrors = {
   multipleErrors: [new Error("First error"), new Error("Second error")],
 };
 
-// Expected UI elements
 export const expectedElements = {
   title: errorTranslations.en.title,
   description: errorTranslations.en.description,

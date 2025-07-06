@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
-import { colors } from "../../consts/colors";
+import { colors } from "../../utils/consts/colors";
+import { KeyboardArrowDown } from "@mui/icons-material";
 
 const LanguageSwitch: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -24,7 +25,7 @@ const LanguageSwitch: React.FC = () => {
       <LanguageButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
         <Flag>{currentLanguage?.flag}</Flag>
         <span>{currentLanguage?.name}</span>
-        <span>▼</span>
+        <KeyboardArrowDown />
       </LanguageButton>
 
       <DropdownMenu $isOpen={isMenuOpen}>

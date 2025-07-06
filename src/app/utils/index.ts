@@ -1,18 +1,8 @@
 import type { ErrorInfo } from "react";
-
-export interface ErrorData {
-  message: string;
-  stack?: string;
-  name: string;
-  timestamp: string;
-  url: string;
-  userAgent: string;
-  componentStack: string;
-}
+import type { ErrorData } from "../types";
 
 export const reloadPage = (): void => {
-  // eslint-disable-next-line no-self-assign
-  window.location.href = window.location.href;
+  window.location.reload();
 };
 
 export const getErrorData = (error: Error, errorInfo: ErrorInfo): ErrorData => {
@@ -25,6 +15,10 @@ export const getErrorData = (error: Error, errorInfo: ErrorInfo): ErrorData => {
     userAgent: navigator.userAgent,
     componentStack: errorInfo.componentStack || "",
   };
+};
+
+export const wait = async (ms: number): Promise<void> => {
+  await new Promise((resolve) => setTimeout(resolve, ms));
 };
 
 export * from "./chartUtils";

@@ -1,4 +1,4 @@
-import type { FactoryAnalyticsData } from "../consts/factory_analytics_data";
+import type { FactoryAnalyticsData } from "./consts/factory_analytics_data";
 
 export const formatUnit = (type: string): string => {
   switch (type) {
@@ -19,10 +19,9 @@ export const formatTickLabel = (
   value: string,
   data: FactoryAnalyticsData
 ): string => {
-  const item = data.find((d) => d.id === value);
+  const item = data.flatMap(shift => shift.logs).find((log) => log.id === value);
   const label = item ? item.label : value;
 
-  // Truncate long labels on mobile devices
   if (
     typeof window !== "undefined" &&
     window.innerWidth < 768 &&

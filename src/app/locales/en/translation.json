@@ -1,0 +1,73 @@
+{
+  "common": {
+    "yes": "Yes",
+    "no": "No"
+  },
+  "home": {
+    "title": "Home",
+    "shifts": "Shifts"
+  },
+  "navbar": {
+    "languageSwitch": "Language",
+    "english": "English",
+    "german": "German"
+  },
+  "table": {
+    "columns": {
+      "id": "ID",
+      "name": "Name",
+      "date": "Date",
+      "description": "Description",
+      "completed": "Completed"
+    },
+    "logs": {
+      "id": "ID",
+      "label": "Label",
+      "value": "Value",
+      "type": "Type",
+      "description": "Description",
+      "category": "Category"
+    }
+  },
+  "shiftDetails": {
+    "shiftId": "Shift ID",
+    "date": "Date",
+    "status": "Status",
+    "description": "Description",
+    "completed": "Completed",
+    "inProgress": "In Progress",
+    "shiftDuration": "Shift Duration"
+  },
+  "metrics": {
+    "overallEquipmentEfficiency": "Overall Equipment Efficiency",
+    "totalDowntime": "Total Downtime",
+    "cleaningTime": "Cleaning Time",
+    "productionLoss": "Production Loss",
+    "availability": "Availability"
+  },
+  "aiSummary": {
+    "title": "AI-Generated Summary",
+    "generateButton": "AI Summary",
+    "generating": "Generating...",
+    "close": "Close",
+    "words": "words"
+  },
+  "error": {
+    "title": "Oops! Something went wrong",
+    "description": "We're sorry for the inconvenience. An unexpected error has occurred.",
+    "errorLabel": "Error:",
+    "tryAgain": "Try Again",
+    "reloadPage": "Reload Page",
+    "supportMessage": "If this problem persists, please contact support.",
+    "pageNotFound": "Page Not Found",
+    "pageNotFoundDescription": "The page you're looking for doesn't exist or has been moved.",
+    "shiftNotFound": "Shift not found",
+    "shiftNotFoundDescription": "The shift you're looking for doesn't exist or has been removed.",
+    "goToHome": "Go to Home"
+  },
+  "chart": {
+    "barChart": {
+      "title": "Factory Analytics"
+    }
+  }
+}
