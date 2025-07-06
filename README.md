@@ -1,69 +1,81 @@
-# React + TypeScript + Vite
+2. Simple UI Components
+   components/ui/ErrorState.tsx
+   Why test: Clear conditional rendering behavior
+   Test cases:
+   Renders with required props (title)
+   Conditionally renders description when provided
+   Conditionally renders action button when both text and handler provided
+   onClick handler is called when action button clicked
+   Applies custom minHeight
+   components/ui/Heading.tsx
+   Why test: Component with variants and styling
+   Test cases:
+   Renders with different variants (h1-h6)
+   Applies default variant (h4) when not specified
+   Renders children correctly
+   Applies custom props and styling
+   components/ui/Loading.tsx
+   Why test: Component with size variations and calculations
+   Test cases:
+   Renders correct number of skeletons based on size
+   Applies correct skeleton height based on size
+   Generates different width variants for skeletons
+   Applies proper styling and animation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+3. Interactive Components
+   components/common/LanguageSwitch.tsx
+   Why test: Interactive component with state management
+   Test cases:
+   Renders current language correctly
+   Toggles dropdown menu on button click
+   Changes language when option selected
+   Closes dropdown after language selection
+   Displays correct flags and language names
+   components/common/AISummaryCard.tsx
+   Why test: Component with complex conditional rendering
+   Test cases:
+   Renders when all required props are provided
+   Returns null when summaryData is undefined
+   Returns null when not successful or not showing
+   Calls close handler when close button clicked
+   Formats timestamp correctly with moment.js
 
-Currently, two official plugins are available:
+4. Custom Hooks
+   hooks/useShiftData.ts
+   Why test: Custom hook with data transformation logic
+   Test cases:
+   Returns all logs when selectedCategory is "All"
+   Filters logs by category when specific category selected
+   Transforms logs for display correctly
+   Returns correct total count
+   hooks/useAISummary.ts
+   Why test: Custom hook with React Query mutation
+   Test cases:
+   Calls generateAISummary with correct parameters
+   Handles success callback
+   Handles error callback and retry logic
+   Updates query cache on success
+   Resets mutation state
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+5. Business Logic Components
+   components/common/MetricList.tsx
+   Why test: Component that renders business metrics
+   Test cases:
+   Renders all metric cards with correct data
+   Applies correct colors for different metrics
+   Handles zero/undefined values gracefully
+   Uses correct translations
+   Testing Strategy Tips
+   Start with utilities - They're pure functions and easiest to test
+   Use React Testing Library for components - focus on user interactions
+   Mock external dependencies - i18next, React Query, moment.js
+   Test user behavior - clicks, toggles, form submissions
+   Test edge cases - empty data, error states, loading states
+   Use data-testid attributes - many components already have them
+   Test accessibility - screen reader support, keyboard navigation
+   Mock Strategy
+   Mock react-i18next for translation testing
+   Mock @tanstack/react-query for hook testing
+   Mock moment.js for consistent date formatting
+   Mock styled-components if needed for styling tests
+   This selection gives you a good mix of utility functions (easiest), UI components (moderate), and business logic (more complex) while demonstrating various testing patterns that interviewers look for.
