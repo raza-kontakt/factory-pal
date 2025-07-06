@@ -4,7 +4,6 @@ import {
   Bar,
   XAxis,
   YAxis,
-  CartesianGrid,
   Tooltip,
   ResponsiveContainer,
   Cell,
@@ -15,6 +14,8 @@ import ChartLegend from "./ChartLegend";
 import type { Log, Shift } from "../../../types/Shift";
 import { useChartData } from "../../../hooks/useShiftData";
 import { CATEGORY_COLORS } from "../../../utils/consts/chartConstants";
+import { colors } from "../../../utils/consts/colors";
+import { formatTickLabel, formatYAxisValue } from "../../../utils";
 
 interface ShiftBarChartProps {
   shift: Shift;
@@ -25,17 +26,6 @@ interface ShiftBarChartProps {
   selectedCategory?: string;
   onCategoryChange?: (category: string) => void;
 }
-
-const formatTickLabel = (value: string, data: Log[]): string => {
-  const item = data.find((d: Log) => d.id === value);
-  const label = item ? item.label : value;
-
-  if (window.innerWidth < 768 && label.length > 8) {
-    return label.substring(0, 8) + "...";
-  }
-
-  return label;
-};
 
 const BarChart: React.FC<ShiftBarChartProps> = ({
   shift,
@@ -50,7 +40,6 @@ const BarChart: React.FC<ShiftBarChartProps> = ({
     selectedCategory,
   });
 
-
   return (
     <ChartContainer className={className}>
       <ChartWrapper style={{ height: `${height}px` }}>
@@ -64,11 +53,6 @@ const BarChart: React.FC<ShiftBarChartProps> = ({
               bottom: 60,
             }}
           >
-            <CartesianGrid
-              strokeDasharray="3 3"
-              stroke="#f3f4f6"
-              vertical={false}
-            />
             <XAxis
               dataKey="id"
               tick={{ fontSize: 12, fill: "#6b7280" }}
@@ -80,12 +64,7 @@ const BarChart: React.FC<ShiftBarChartProps> = ({
             />
             <YAxis
               tick={{ fontSize: 12, fill: "#6b7280" }}
-              tickFormatter={(value) => {
-                if (Math.abs(value) >= 1000) {
-                  return `${(value / 1000).toFixed(1)}k`;
-                }
-                return value.toString();
-              }}
+              tickFormatter={(value) => formatYAxisValue(value)}
             />
             <Tooltip
               content={<CustomTooltip />}
@@ -108,7 +87,7 @@ const BarChart: React.FC<ShiftBarChartProps> = ({
               {chartData.map((entry: Log, index: number) => (
                 <Cell
                   key={`cell-${index}`}
-                  fill={CATEGORY_COLORS[entry?.category] || "#6b7280"}
+                  fill={CATEGORY_COLORS[entry?.category] || colors.primary.main}
                 />
               ))}
             </Bar>

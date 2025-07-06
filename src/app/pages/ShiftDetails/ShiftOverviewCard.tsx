@@ -25,7 +25,7 @@ const ShiftOverViewCard = ({
       <StyledCardContent>
         <Box display="flex" flexWrap="wrap" gap={3} mb={3}>
           <Box flex="1" minWidth="200px">
-            <Typography variant="h6" color="primary" gutterBottom>
+            <Typography variant="h6" color="primary" fontWeight={700} gutterBottom>
               {t("shiftDetails.shiftId")}
             </Typography>
             <Typography variant="body1" fontWeight={500}>

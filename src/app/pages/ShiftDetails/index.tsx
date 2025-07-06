@@ -4,20 +4,18 @@ import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 
 import { getShift } from "../../services/shift";
-import {
-  getShiftLogsCategories,
-  parseShiftData,
-} from "../../utils/shiftParser";
+import { getShiftLogsCategories } from "../../utils/shiftParser";
 import Heading from "../../components/ui/Heading";
 import Container from "../../components/common/Container";
 import ErrorState from "../../components/ui/ErrorState";
-import ShiftOverViewCard from "./ShiftOverviewCard";
+import ShiftOverviewCard from "./ShiftOverviewCard";
 import MetricList from "../../components/features/MetricList/MetricList";
 import ShiftDetailsSkeleton from "./ShiftDetailsSkeleton";
 import AISummary from "../../components/features/AISummary/AISummary";
 import ShiftTable from "./ShiftTable";
 import BarChart from "../../components/charts/BarChart/BarChart";
 import ShiftFilters from "./ShiftFilters";
+import { computeShiftData } from "../../utils/shiftParser";
 
 const ShiftDetails: React.FC = () => {
   const { id } = useParams();
@@ -52,14 +50,14 @@ const ShiftDetails: React.FC = () => {
   const shiftLogCategories = getShiftLogsCategories(shift);
   const allCategories = ["All", ...shiftLogCategories];
 
-  const parsedShift = parseShiftData(shift);
+  const parsedShift = computeShiftData(shift);
   const { computed } = parsedShift;
 
   return (
     <Container noPadding>
       <Heading variant="h4">{shift.name}</Heading>
 
-      <ShiftOverViewCard
+      <ShiftOverviewCard
         shift={shift}
         shiftDuration={`${computed.duration.value} ${computed.duration.unit}`}
       />

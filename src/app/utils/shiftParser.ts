@@ -53,7 +53,7 @@ export interface ParsedShift extends Shift {
   };
 }
 
-export const parseShiftData = (shift: Shift): ParsedShift => {
+export const computeShiftData = (shift: Shift): ParsedShift => {
   const duration =
     shift.logs.find((log) => log.id === "shift_duration")?.value || 0;
 
