@@ -4,7 +4,7 @@ const tableHeaders = [80, 120, 60, 80, 70];
 
 const SkeletonTable = () => {
   return (
-    <Box sx={{ mb: 4 }}>
+    <Box sx={{ mb: 4 }} data-testid="loading">
       <Card
         sx={{
           borderRadius: 2,
