@@ -1,21 +1,4 @@
 
-3. Interactive Components
-   components/common/LanguageSwitch.tsx
-   Why test: Interactive component with state management
-   Test cases:
-   Renders current language correctly
-   Toggles dropdown menu on button click
-   Changes language when option selected
-   Closes dropdown after language selection
-   Displays correct flags and language names
-   components/common/AISummaryCard.tsx
-   Why test: Component with complex conditional rendering
-   Test cases:
-   Renders when all required props are provided
-   Returns null when summaryData is undefined
-   Returns null when not successful or not showing
-   Calls close handler when close button clicked
-   Formats timestamp correctly with moment.js
 
 4. Custom Hooks
    hooks/useShiftData.ts
